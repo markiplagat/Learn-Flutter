@@ -16,6 +16,8 @@ class MyAppBar extends StatelessWidget {
 
   final Widget title;
 
+  // Point out that the function is also defined in an ancestor class
+  // but is being redefined to do something else
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,24 +50,18 @@ class MyScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        children: [
-          MyAppBar(
-            title: Text(
-              'Learn Flutter',
-              style: Theme.of(context)
-                .primaryTextTheme
-                .headline6,
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(
+              title: const Text("My App Bar"),
             ),
-          ),
-          const Expanded(
-            child: Center(
-              child: Text('Hello, world'),
-            ),
-          ),
-        ],
-      ),
-    );
+            body: Container(
+                child: Center(
+                    child: Container(
+                        child: Column(children: [
+              Container(child: Row(children: [Container(), Container()])),
+              Container(),
+              Container(),
+            ]))))));
   }
 }
