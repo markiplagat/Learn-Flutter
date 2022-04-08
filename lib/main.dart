@@ -55,13 +55,27 @@ class MyScaffold extends StatelessWidget {
             appBar: AppBar(
               title: const Text("My App Bar"),
             ),
-            body: Container(
+            body: SizedBox(
+                height: double.infinity,
+                width: double.infinity,
                 child: Center(
                     child: Container(
-                        child: Column(children: [
-              Container(child: Row(children: [Container(), Container()])),
-              Container(),
-              Container(),
-            ]))))));
+                        color: Colors.lightGreen,
+                        height: 300,
+                        width: 200,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage("assets/images/dp.png"),
+                            ),
+                            const Text("App"),
+                            const Text("Learn Flutter"),
+                            ElevatedButton(
+                                onPressed: () {}, child: const Text("Contact"))
+                          ],
+                        ))))));
   }
 }
