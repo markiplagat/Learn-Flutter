@@ -55,27 +55,68 @@ class MyScaffold extends StatelessWidget {
             appBar: AppBar(
               title: const Text("My App Bar"),
             ),
-            body: SizedBox(
-                height: double.infinity,
-                width: double.infinity,
-                child: Center(
-                    child: Container(
-                        color: Colors.lightGreen,
-                        height: 300,
-                        width: 200,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const CircleAvatar(
+            body: Container(
+                child: Container(
+                    height: 360,
+                    color: Colors.grey,
+                    margin: const EdgeInsets.all(8),
+                    child: Column(
+                      children: [
+                        Container(
+                          child: Row(children: [
+                            Container(
+                                child: const CircleAvatar(
                               backgroundImage:
-                                  AssetImage("assets/images/dp.png"),
+                                  AssetImage('assets/images/dp.png'),
+                            )),
+                            const SizedBox(width: 20),
+                            Expanded(
+                              child: Container(
+                                child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: const [
+                                      Text("My App"),
+                                      Text("Learning")
+                                    ]),
+                              ),
                             ),
-                            const Text("App"),
-                            const Text("Learn Flutter"),
-                            ElevatedButton(
-                                onPressed: () {}, child: const Text("Contact"))
+                            const SizedBox(width: 20),
+                            Container(
+                              child: const Icon(Icons.more_vert),
+                            ),
+                          ]),
+                        ),
+                        Container(
+                            height: 280,
+                            width: double.infinity,
+                            child: Image.network(
+                                "https://avatars.githubusercontent.com/u/40692082?v=4",
+                                fit: BoxFit.cover)),
+                        Container(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                                child: Row(children: const [
+                              Icon(Icons.thumb_up),
+                              Text("Like"),
+                            ])),
+                            Container(
+                                child: Row(children: const [
+                              Icon(Icons.message),
+                              Text("Comment"),
+                            ])),
+                            Container(
+                                child: Row(children: const [
+                              Icon(Icons.share),
+                              Text("Share"),
+                            ])),
                           ],
-                        ))))));
+                        )),
+                      ],
+                    )))));
   }
 }
